@@ -7,10 +7,10 @@
 ### Featured
 
 1) [Singly Linked Lists](https://github.com/NikolaosKantartzopoulos/data-structures-and-algoriths-js/tree/main/linked-lists)
+2) [Doubly Linked Lists](https://github.com/NikolaosKantartzopoulos/data-structures-and-algoriths-js/tree/main/doubly-linked-lists)
   
   
-### Get all!
-- and install [JEST](https://jestjs.io/)
+### Get all && install [JEST](https://jestjs.io/)
   
   ```
   git clone https://github.com/NikolaosKantartzopoulos/data-structures-and-algoriths-js.git && cd ./data-structures-and-algoriths-js && npm i
