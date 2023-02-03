@@ -169,3 +169,21 @@ describe("Insert", () => {
 		expect(dll.get(3).value).toBe(3.5);
 	});
 });
+
+describe("Remove", () => {
+	test("head", () => {
+		let dll = new DoublyLinkedList(1).push(2).push(3);
+		dll.remove(1);
+		expect(dll.head.value).toBe(1);
+	});
+	test("previous", () => {
+		let dll = new DoublyLinkedList(1).push(2).push(3);
+		dll.remove(1);
+		expect(dll.get(0).value).toBe(1);
+	});
+	test("next", () => {
+		let dll = new DoublyLinkedList(1).push(2).push(3);
+		dll.remove(1);
+		expect(dll.get(1).value).toBe(3);
+	});
+});

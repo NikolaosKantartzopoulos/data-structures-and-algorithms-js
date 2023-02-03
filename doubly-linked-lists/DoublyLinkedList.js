@@ -96,7 +96,7 @@ class DoublyLinkedList {
 	}
 
 	set(index, newValue) {
-		//get() timpe complexity is O(n), so...
+		//get() method time complexity is O(n), so...
 		//Time complexity: O(n) - Space Complexity: O(1)
 		if (index < 0 || index >= this.length) return undefined;
 		let pointer = this.get(index);
@@ -119,31 +119,24 @@ class DoublyLinkedList {
 		this.length++;
 		return true;
 	}
+
+	remove(index) {
+		//get() method time complexity is O(n), so...
+		//Time complexity: O(n) - Space Complexity: O(1)
+		if (index < 0 || index > this.length) return undefined;
+		if (index === 0) return this.shift();
+		if (index === this.length) return this.pop();
+
+		let pointer = this.get(index);
+		let previousNode = this.get(index - 1);
+		let nextNode = this.get(index + 1);
+		previousNode.next = nextNode;
+		nextNode.prev = previousNode;
+		pointer.next = null;
+		pointer.prev = null;
+		this.length--;
+		return pointer;
+	}
 }
-
-function test() {
-	let myDLL = new DoublyLinkedList(1);
-	myDLL.push(3);
-
-	console.log("DLL before insert():");
-	myDLL.printList();
-
-	myDLL.insert(1, 2);
-
-	console.log("\nDLL after insert(2) in middle:");
-	myDLL.printList();
-
-	myDLL.insert(0, 0);
-
-	console.log("\nDLL after insert(0) at beginning:");
-	myDLL.printList();
-
-	myDLL.insert(4, 4);
-
-	console.log("\nDLL after insert(4) at end:");
-	myDLL.printList();
-}
-
-test();
 
 module.exports = DoublyLinkedList;

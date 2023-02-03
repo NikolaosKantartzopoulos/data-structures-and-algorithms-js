@@ -1,6 +1,6 @@
 let Node = require("./Node.js");
 
-class LinkedList {
+class SinglyLinkedList {
 	constructor(value) {
 		if (!value) {
 			this.head = null;
@@ -182,4 +182,4 @@ class LinkedList {
 		return this;
 	}
 }
-module.exports = LinkedList;
+module.exports = SinglyLinkedList;
