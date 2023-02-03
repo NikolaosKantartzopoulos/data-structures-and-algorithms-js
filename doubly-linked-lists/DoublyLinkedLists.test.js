@@ -1,7 +1,5 @@
 let DoublyLinkedList = require("./DoublyLinkedList");
 
-// let threeNodeArray = new DoublyLinkedList(1).push(2).push(3)
-
 describe("Constructor", () => {
 	test("valid value - length", () => {
 		let dll = new DoublyLinkedList(1);
@@ -36,20 +34,34 @@ describe("Push", () => {
 });
 
 describe("Pop", () => {
-	test("pop - head", () => {
+	test("head", () => {
 		let dll = new DoublyLinkedList(1).push(2).push(3);
 		dll.pop();
 		expect(dll.head.next.value).toBe(2);
 	});
-	test("pop - tail", () => {
+	test("tail", () => {
 		let dll = new DoublyLinkedList(1).push(2).push(3);
 		dll.pop();
 		expect(dll.tail.prev.value).toBe(1);
 	});
-	test("pop - length", () => {
+	test("length", () => {
 		let dll = new DoublyLinkedList(1).push(2).push(3);
 		dll.pop();
 		expect(dll.length).toBe(2);
+	});
+	test("if 1 item - head", () => {
+		let dll = new DoublyLinkedList(1);
+		dll.pop();
+		expect(dll.head).toBeNull();
+	});
+	test("if 1 item - tail", () => {
+		let dll = new DoublyLinkedList(1);
+		dll.pop();
+		expect(dll.tail).toBeNull();
+	});
+	test("if 1 item - return", () => {
+		let dll = new DoublyLinkedList(1);
+		expect(dll.pop().value).toBe(1);
 	});
 });
 
@@ -86,5 +98,74 @@ describe("Shift", () => {
 		let dll = new DoublyLinkedList(1).push(2).push(3);
 		dll.shift();
 		expect(dll.length).toBe(2);
+	});
+});
+
+describe("Get", () => {
+	test("get(-1)", () => {
+		let dll = new DoublyLinkedList(1).push(2).push(3);
+		expect(dll.get(-1)).toBeUndefined();
+	});
+	test("get - index > length", () => {
+		let dll = new DoublyLinkedList(1).push(2).push(3);
+		expect(dll.get(3)).toBeUndefined();
+	});
+	test("get", () => {
+		let dll = new DoublyLinkedList(1).push(2).push(3);
+		expect(dll.get(1).value).toBe(2);
+	});
+});
+
+describe("Set", () => {
+	test("set", () => {
+		let dll = new DoublyLinkedList(1).push(2).push(3);
+		expect(dll.set(1, 20).value).toBe(20);
+	});
+});
+
+describe("Insert", () => {
+	test("index < 0", () => {
+		let dll = new DoublyLinkedList(1).push(2).push(3);
+		expect(dll.insert(-1, 20)).toBeUndefined();
+	});
+	test("index > length", () => {
+		let dll = new DoublyLinkedList(1).push(2).push(3);
+		expect(dll.insert(4, 40)).toBeUndefined();
+	});
+	test("head", () => {
+		let dll = new DoublyLinkedList(1).push(2).push(3);
+		dll.insert(1, 1.5);
+		expect(dll.head.value).toBe(1);
+	});
+	test("prev", () => {
+		let dll = new DoublyLinkedList(1).push(2).push(3);
+		dll.insert(1, 1.5);
+		expect(dll.get(1).prev.value).toBe(1);
+	});
+	test("inserted", () => {
+		let dll = new DoublyLinkedList(1).push(2).push(3);
+		dll.insert(1, 1.5);
+		expect(dll.get(1).value).toBe(1.5);
+	});
+	test("next", () => {
+		let dll = new DoublyLinkedList(1).push(2).push(3);
+		dll.insert(1, 1.5);
+		expect(dll.get(2).value).toBe(2);
+	});
+	test("with 0 nodes", () => {
+		let dll = new DoublyLinkedList(1);
+		dll.pop();
+		dll.insert(0, 1.5);
+		expect(dll.head.value).toBe(1.5);
+	});
+	test("at end", () => {
+		let dll = new DoublyLinkedList(1).push(2).push(3);
+		dll.insert(3, 3.5);
+		expect(dll.tail.value).toBe(3.5);
+	});
+	test("at end 2", () => {
+		let dll = new DoublyLinkedList(1).push(2).push(3);
+		dll.insert(3, 3.5);
+		expect(dll.get(3).value).toBe(3.5);
 	});
 });
