@@ -15,3 +15,9 @@
   ```
   git clone https://github.com/NikolaosKantartzopoulos/data-structures-and-algoriths-js.git && cd ./data-structures-and-algoriths-js && npm i
   ```
+
+### Care to test?
+
+```
+npx jest ./ --silent
+```
