@@ -14,7 +14,7 @@
 
   
   ```
-  git clone https://github.com/NikolaosKantartzopoulos/data-structures-and-algorithms-js.git && cd ./data-structures-and-algoriths-js && npm i
+  git clone https://github.com/NikolaosKantartzopoulos/data-structures-and-algorithms-js.git && cd ./data-structures-and-algorithms-js && npm i
   ```
 
 ### Care to test?
