@@ -6,12 +6,12 @@
 
 ### Methods
 
-|   Method    | Time Complexity | Space Complexity |
-| :---------: | :-------------: | :--------------: |
-|  **push**   |      O(1)       |       O(1)       |
-|   **pop**   |      O(1)       |       O(1)       |
-|   **peek**   |      O(1)       |       O(1)       |
-|   **toArray**   |      O(1)       |       O(1)       |
+|   Method    | Time Complexity | Space Complexity |Ready
+| :---------: | :-------------: | :--------------: |:--------------:
+|  **push**   |      O(1)       |       O(1)       | yes
+|   **pop**   |      O(1)       |       O(1)       | yes
+|   **peek**   |      O(1)       |       O(1)       | yes
+|   **toArray**   |      O(1)       |       O(1)       | yes
 | **unshift** |      O(n)       |       O(1)       |
 |  **shift**  |      O(n)       |       O(1)       |
 |   **get**   |      O(n)       |       O(1)       |
