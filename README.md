@@ -8,7 +8,7 @@
 
 1) [Singly Linked Lists](https://github.com/NikolaosKantartzopoulos/data-structures-and-algorithms-js/tree/main/singly-linked-lists)
 2) [Doubly Linked Lists](https://github.com/NikolaosKantartzopoulos/data-structures-and-algorithms-js/tree/main/doubly-linked-lists)
-  
+3) [Stacks](https://github.com/NikolaosKantartzopoulos/data-structures-and-algorithms-js/tree/main/stacks)
   
 ### Get all && install [JEST](https://jestjs.io/)
 
