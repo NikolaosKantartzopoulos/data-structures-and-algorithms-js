@@ -10,6 +10,7 @@
 | :---------: | :-------------: | :--------------: |:--------------:
 |  **insert**   |      O(log(n))       |       O(n)       | yes
 |   **contains**   |      O(log(n))       |       O(n)       | yes
+|   **remove**   |             |              |
 |   **breadth-first-search**   |      O(log(n))       |       O(n)       | yes
 | **preOrder** |             |             |
 |  **postOrder**  |             |             |
