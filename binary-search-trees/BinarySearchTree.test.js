@@ -41,7 +41,7 @@ describe("Basic", () => {
 		bst.insert(60);
 		expect(bst.minimumValue()).toBe(12);
 	});
-	test("orderedArray", () => {
+	test("Breadth first search", () => {
 		let bst = new BinarySearchTree();
 		bst.insert(25);
 		bst.insert(15);
@@ -49,6 +49,7 @@ describe("Basic", () => {
 		bst.insert(12);
 		bst.insert(23);
 		bst.insert(60);
-		expect(bst.toOrderedArray()).toEqual([12]);
+		bst.insert(48);
+		expect(bst.bfs()).toEqual([25, 15, 52, 12, 23, 48, 60]);
 	});
 });

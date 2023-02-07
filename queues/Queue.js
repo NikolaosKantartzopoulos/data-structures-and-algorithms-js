@@ -50,8 +50,9 @@ class Queue {
 		//Time complexity: O(1) - Space Complexity: O(1)
 		if (!this.length) return undefined;
 		if (this.length == 1) {
+			let pointer = this.head;
 			this.emptyQueue();
-			return;
+			return pointer;
 		}
 		let pointer = this.head;
 		this.head = this.head.next;
