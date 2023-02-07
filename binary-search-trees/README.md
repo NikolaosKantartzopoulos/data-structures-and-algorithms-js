@@ -2,7 +2,7 @@
 
 ### Bonus
 
-- ??? tests using [JEST](https://jestjs.io/)
+- 8 tests using [JEST](https://jestjs.io/)
 
 ### Methods
 
