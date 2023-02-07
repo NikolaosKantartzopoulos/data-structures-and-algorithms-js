@@ -15,7 +15,7 @@ describe("Basic", () => {
 describe("Push", () => {
 	test("toArray", () => {
 		let s1 = new Stack(1).push(2).push(3);
-		expect(s1.toArray()).toBe("3,2,1");
+		expect(s1.toArray()).toBe([3, 2, 1]);
 	});
 	test("top", () => {
 		let s1 = new Stack(1).push(2).push(3);

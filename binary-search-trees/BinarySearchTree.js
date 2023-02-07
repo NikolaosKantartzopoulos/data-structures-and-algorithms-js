@@ -1,6 +1,5 @@
 const Node = require("./Node");
 const Queue = require("../queues/Queue");
-const Stack = require("../stacks/Stack");
 
 class BinarySearchTree {
 	constructor() {
@@ -8,6 +7,7 @@ class BinarySearchTree {
 	}
 
 	insert(value) {
+		//Time complexity: O(log(n)) - Space Complexity: O(n)
 		let newNode = new Node(value);
 		if (this.root == null) {
 			this.root = newNode;
@@ -35,6 +35,7 @@ class BinarySearchTree {
 	}
 
 	contains(value) {
+		//Time complexity: O(log(n)) - Space Complexity: O(n)
 		if (this.root == null) return false;
 		let pointer = this.root;
 		while (pointer) {
@@ -50,6 +51,7 @@ class BinarySearchTree {
 	}
 
 	minimumValue() {
+		//Time complexity: O(log(n)) - Space Complexity: O(n)
 		if (this.root == null) return undefined;
 		let pointer = this.root;
 		while (pointer.left != null) {
@@ -59,6 +61,8 @@ class BinarySearchTree {
 	}
 
 	bfs() {
+		//Time complexity: O(|V| +|E|) - Space Complexity: O(|V|)
+		//where |V| is the number of vertices and |E| is the number of edges
 		if (this.root == null) return undefined;
 		let pointer = this.root;
 		let queue = new Queue();
@@ -67,9 +71,7 @@ class BinarySearchTree {
 		while (queue.length > 0) {
 			results.push(queue.peek().value);
 			pointer = queue.peek();
-
-			console.log("results:", results);
-
+			console.log(queue.toArray());
 			if (pointer.left) queue.enqueue(pointer.left);
 			if (pointer.right) queue.enqueue(pointer.right);
 			pointer = queue.dequeue();
@@ -77,29 +79,47 @@ class BinarySearchTree {
 		return results;
 	}
 
-	// toOrderedArray() {
-	// 	if (this.root == null) return undefined;
-	// 	let arr = [];
-	// 	let pointer = this.root;
-	// 	while (pointer.left != null) pointer = pointer.left;
-	// 	if (pointer.right == null) {
-	// 	}
-	// 	arr.push(pointer.value);
-	// 	arr.push();
+	preOrder() {
+		//Time complexity: O(|V| +|E|) - Space Complexity: O(|V|)
+		//where |V| is the number of vertices and |E| is the number of edges
+		if (this.root == null) return undefined;
+		let queue = new Queue();
+		function traverse(nodePointer) {
+			queue.enqueue(nodePointer.value);
+			if (nodePointer.left) traverse(nodePointer.left);
+			if (nodePointer.right) traverse(nodePointer.right);
+		}
+		traverse(this.root);
+		return queue.toArray();
+	}
 
-	// 	console.log(arr);
-	// 	return arr;
-	// }
+	postOrder() {
+		//Time complexity: O(|V| +|E|) - Space Complexity: O(|V|)
+		//where |V| is the number of vertices and |E| is the number of edges
+		if (this.root == null) return undefined;
+		let queue = new Queue();
+		function traverse(nodePointer) {
+			if (nodePointer.left) traverse(nodePointer.left);
+			if (nodePointer.right) traverse(nodePointer.right);
+			queue.enqueue(nodePointer.value);
+		}
+		traverse(this.root);
+		return queue.toArray();
+	}
+
+	inOrder() {
+		//Time complexity: O(|V| +|E|) - Space Complexity: O(|V|)
+		//where |V| is the number of vertices and |E| is the number of edges
+		if (this.root == null) return undefined;
+		let queue = new Queue();
+		function traverse(nodePointer) {
+			if (nodePointer.left) traverse(nodePointer.left);
+			queue.enqueue(nodePointer.value);
+			if (nodePointer.right) traverse(nodePointer.right);
+		}
+		traverse(this.root);
+		return queue.toArray();
+	}
 }
-
-let bst = new BinarySearchTree();
-bst.insert(25);
-bst.insert(15);
-bst.insert(52);
-bst.insert(12);
-bst.insert(23);
-bst.insert(60);
-bst.insert(48);
-bst.bfs();
 
 module.exports = BinarySearchTree;

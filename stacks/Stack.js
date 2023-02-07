@@ -14,8 +14,7 @@ class Stack {
 			arr.push(pointer.value);
 			pointer = pointer.next;
 		}
-		console.log(arr.join(","));
-		return arr.join(",");
+		return arr;
 	}
 
 	peek() {
